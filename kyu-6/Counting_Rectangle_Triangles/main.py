@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/57d99f6bbfcdc5b3b0000286
+
 from itertools import combinations
 
 def sides(points):
