@@ -1,3 +1,5 @@
+# https://www.codewars.com/kata/5b2e5a02a454c82fb9000048
+
 def get_neighbourhood(n_type, arr, coordinates):
   x, y = coordinates
   r, c = len(arr), len(arr[0])
