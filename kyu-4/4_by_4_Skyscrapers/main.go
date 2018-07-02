@@ -34,8 +34,8 @@ func fill_2d_graph() [][]int {
 }
 
 func coordinates(i int) (int, int) {
-  var x1 int = i / 4
-  var y1 int = i % 4
+  var x1 int = i / GRAPH_SIZE
+  var y1 int = i % GRAPH_SIZE
   switch (x1) {
     case 0: return 0, y1
     case 1: return y1, GRAPH_SIZE-1
@@ -51,7 +51,7 @@ func construct_clue_blocks(cs []int) (clues []Clue) {
     if c != 0 {
       x, y := coordinates(i)
       is_col := (int(i / GRAPH_SIZE) % 2) == 0
-      reverse := (is_col && x == 3) || (!is_col && y == 3)
+      reverse := (is_col && x == GRAPH_SIZE-1) || (!is_col && y == GRAPH_SIZE-1)
       clues = append(clues,
         Clue{
           value: c,
