@@ -1,5 +1,6 @@
 // https://www.codewars.com/kata/5671d975d81d6c1c87000022
-
+package main
+import "fmt"
 const GRAPH_SIZE int = 4
 type Clue struct {
   value int
@@ -132,8 +133,7 @@ func satisfies_clues(cbs []Clue, g [][]int) bool {
         arr = append(arr, g[j][cb.y])
       }
     } else { arr = g[cb.x] }
-    s := satisfies_line(cb.value, arr, cb.reverse)
-    if !s { return false }
+    if !satisfies_line(cb.value, arr, cb.reverse) { return false }
   }
   return true
 }
@@ -184,3 +184,16 @@ func SolvePuzzle(cs []int) [][]int {
   fill_graph(cbs, g)
   return g
 }
+
+
+
+func main() {
+  fmt.Println(SolvePuzzle([]int{
+    0, 0, 1, 2,
+    0, 2, 0, 0,
+    0, 3, 0, 0,
+    0, 1, 0, 0}))
+}
+
+
+
