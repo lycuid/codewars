@@ -185,15 +185,3 @@ func SolvePuzzle(cs []int) [][]int {
   return g
 }
 
-
-
-func main() {
-  fmt.Println(SolvePuzzle([]int{
-    0, 0, 1, 2,
-    0, 2, 0, 0,
-    0, 3, 0, 0,
-    0, 1, 0, 0}))
-}
-
-
-
