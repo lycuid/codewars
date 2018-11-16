@@ -5,36 +5,42 @@ data Peano = Zero | Succ Peano deriving (Eq, Show)
 
 add, sub, mul, div :: Peano -> Peano -> Peano
 
-add = apply (+)
-sub = apply (-)
-mul = apply (*)
- 
+add Zero Zero = Zero
+add x Zero = x
+add Zero x = x
+add (Succ x) (Succ y) = Succ (Succ (add x y))
+
+
+sub Zero Zero = Zero
+sub (Succ x) Zero = Succ x
+sub Zero (Succ x) = error "negative number"
+sub (Succ x) (Succ y) = sub x y
+
+mul Zero _ = Zero
+mul _ Zero = Zero
+mul (Succ x) (Succ Zero) = Succ x
+mul (Succ x) (Succ y) = add (Succ x) $ mul (Succ x) (Succ y `sub` Succ Zero)
+
 div _ Zero = error "divide by 0"
-div x y = apply quot x y
+div Zero _ = Zero
+div (Succ x) (Succ Zero) = Succ x
+div (Succ x) (Succ y)
+  | (Succ x) `compare` (Succ y) == LT = Zero
+  | otherwise = (Succ Zero) `add` (div (Succ x `sub` Succ y) (Succ y))
 
 
 even, odd :: Peano -> Bool
 
-even = isEven . detokenize
-odd = not . isEven . detokenize
+even Zero = True
+even (Succ Zero) = False
+even (Succ (Succ x)) = even x
+
+odd = not . even
+
 
 compare :: Peano -> Peano -> Ordering
-compare x y
-  | x' < y' = LT
-  | x' > y' = GT
-  | otherwise = EQ
-  where
-    [x', y'] = map detokenize [x, y]
+compare Zero Zero = EQ
+compare (Succ x) Zero = GT
+compare Zero (Succ x) = LT
+compare (Succ x) (Succ y) = compare x y
 
-
-isEven = (\x -> x `mod` 2 == 0)
-
-apply f x y = tokenize . foldl1 f . map detokenize $ [x, y]
-
-tokenize 0 = Zero
-tokenize x
-  | x < 0 = error "negative number"
-  | otherwise = Succ (tokenize (x-1))
-
-detokenize Zero = 0
-detokenize (Succ x) = 1 + detokenize x
