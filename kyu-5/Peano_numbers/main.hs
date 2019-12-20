@@ -1,4 +1,4 @@
--- https://www.codewars.com/kata/5779b0f0ec883247b2000117
+-- https://www.codewars.com/kata/5779b0f0ec883247b2000117/
 
 import Prelude hiding (even, odd, div, compare, Num, Int, Integer, Float, Double, Rational, Word)
 
