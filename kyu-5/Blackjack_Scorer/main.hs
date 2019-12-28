@@ -1,3 +1,5 @@
+-- https://www.codewars.com/kata/534ffb35edb1241eda0015fe/
+
 import Data.List (partition)
 import Data.Char (isDigit)
 
