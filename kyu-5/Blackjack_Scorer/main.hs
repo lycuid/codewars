@@ -15,7 +15,6 @@ blackjackScorePartition xs = (length aces, safe_score)
     (aces, rest) = partition ((==) "A") xs
     safe_score = (+) (length aces) . sum . map blackjackScore $ rest
 
-
 scoreHand :: [String] -> Int
 scoreHand xs = safe_score + required_score
   where
