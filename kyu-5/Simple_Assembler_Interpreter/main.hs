@@ -1,3 +1,5 @@
+-- https://www.codewars.com/kata/51675d17e0c1bed195000001/
+
 import qualified Data.Map.Strict as M
 import Text.Read (readMaybe)
 import Data.Maybe (fromMaybe, fromJust, maybe)
