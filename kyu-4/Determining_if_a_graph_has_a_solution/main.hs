@@ -1,4 +1,4 @@
--- https://www.codewars.com/kata/53223653a191940f2b000877/haskell
+-- https://www.codewars.com/kata/53223653a191940f2b000877/
 
 type Node = Char
 type Arc = (Node, Node)

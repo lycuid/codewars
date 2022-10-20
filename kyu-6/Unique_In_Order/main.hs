@@ -1,4 +1,4 @@
--- https://www.codewars.com/kata/54e6533c92449cc251001667/haskell
+-- https://www.codewars.com/kata/54e6533c92449cc251001667/
 import Data.List (group)
 
 uniqueInOrder :: Eq a => [a] -> [a]

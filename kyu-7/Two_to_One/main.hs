@@ -1,4 +1,4 @@
--- https://www.codewars.com/kata/5656b6906de340bd1b0000ac/haskell
+-- https://www.codewars.com/kata/5656b6906de340bd1b0000ac/
 import           Data.List (group, sort)
 
 longest :: [Char] -> [Char] -> [Char]
